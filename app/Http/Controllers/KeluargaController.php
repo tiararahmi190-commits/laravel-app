@@ -51,7 +51,9 @@ class KeluargaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $row = keluarga::findOrFail($id);
+        return view('keluarga.edit', compact('row'));
+
     }
 
     /**
@@ -59,7 +61,14 @@ class KeluargaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $row = Keluarga::findOrFail($id); // 
+         $row->update([
+            'nama_kepala' => $request->nama_kepala,
+            'alamat' => $request->alamat,
+            'no_hp' => $request->no_hp,
+         ]);
+
+         return redirect('/keluarga');
     }
 
     /**
@@ -67,6 +76,9 @@ class KeluargaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $row = Keluarga::findOrFail($id);
+        $row->delete();
+
+        return redirect('/keluarga');
     }
 }

@@ -24,7 +24,14 @@
                 <td>{{ $row->alamat }}</td>
                 <td>{{ $row->no_hp }}</td>
                 <td>
-                    <a href="{{ url('keluarga/'. $row->keluarga_id . '/edit') }}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{{ url('keluarga/'. $row->keluarga_id . '/edit') }}" class="btn btn-primary btn-sm">Edit</a>
+                    
+                    <form action="{{ url ('keluarga/' . $row->keluarga_id ) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm"
+                            onclick="return confirm ('yakin ingin mneghapus data?')">Hapus</button>
+                    </form>
                 </td>
             </tr>
             @empty
