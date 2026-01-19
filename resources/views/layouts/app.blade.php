@@ -35,6 +35,9 @@
                         <li class="nav-item">
                                     <a class="nav-link" href="{{ url('/keluarga') }}">Keluarga</a>
                         </li> 
+                        <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/balita') }}">balita</a>
+                        </li> 
                         @endauth
                     </ul>
 
